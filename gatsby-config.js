@@ -1,4 +1,6 @@
-const myQueries = require("./src/utils/algolia-queries")
+require("dotenv").config();
+
+const myQueries = require("./src/utils/algolia-queries"); // Zorg dat dit bovenaan staat!
 
 module.exports = {
   siteMetadata: {
@@ -22,8 +24,7 @@ module.exports = {
 
     {
       resolve: `gatsby-plugin-react-helmet`,
-      options: {
-      },
+      options: {},
     },
 
     `gatsby-transformer-remark`,
@@ -39,11 +40,11 @@ module.exports = {
       resolve: `gatsby-plugin-algolia`,
       options: {
         appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY, // Alleen gebruiken tijdens build-tijd
         indexName: `artworks`,
         queries: myQueries,
         chunkSize: 10000,
       },
     },
   ],
-}
+};
