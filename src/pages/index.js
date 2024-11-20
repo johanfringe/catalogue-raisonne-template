@@ -71,6 +71,13 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 
 const IndexPage = () => (
   <Layout>
+    <main>
+      <title>Catalogue Raisonné</title>
+      <h1>Welkom bij de Catalogue Raisonné</h1>
+      <p>
+        Dit is de startpagina voor jouw collectie van kunstwerken. Hier kun je zoeken naar kunstwerken, en details bekijken.
+      </p>
+    </main>
     <div className={styles.textCenter}>
       <StaticImage
         src="../images/example.png"
@@ -103,7 +110,7 @@ const IndexPage = () => (
             className={styles.listItemLink}
             href={`${link.url}${utmParameters}`}
           >
-            {link.text} ↗
+            {link.text} →
           </a>
           <p className={styles.listItemDescription}>{link.description}</p>
         </li>
