@@ -18,7 +18,12 @@ const pageQuery = `{
 const queries = [
   {
     query: pageQuery,
-    transformer: ({ data }) => data.allMarkdownRemark.nodes, // Transformeer de data naar het juiste formaat voor Algolia
+    transformer: ({ data }) => {
+      return data.allMarkdownRemark.nodes.map(node => ({
+        ...node,
+        contentDigest: node.internal.contentDigest, // Voeg het contentDigest toe
+      }));
+    },
   },
 ]
 
