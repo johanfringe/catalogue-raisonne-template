@@ -8,6 +8,7 @@ const pageQuery = `{
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        category
         description
       }
       excerpt(pruneLength: 5000)
