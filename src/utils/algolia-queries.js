@@ -2,6 +2,9 @@ const pageQuery = `{
   allMarkdownRemark {
     nodes {
       objectID: id
+      internal {
+        contentDigest
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
@@ -15,7 +18,7 @@ const pageQuery = `{
 const queries = [
   {
     query: pageQuery,
-    transformer: ({ data }) => data.allMarkdownRemark.nodes, // De manier waarop de data wordt verstuurd naar Algolia
+    transformer: ({ data }) => data.allMarkdownRemark.nodes, // Transformeer de data naar het juiste formaat voor Algolia
   },
 ]
 
