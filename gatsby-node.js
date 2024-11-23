@@ -1,18 +1,42 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
- */
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
 
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
-  })
-}
+// Slug genereren voor elk markdown bestand
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === "MarkdownRemark") {
+    const slug = createFilePath({ node, getNode, basePath: "content" });
+    createNodeField({
+      node,
+      name: "slug",
+      value: slug,
+    });
+  }
+};
+
+// Dynamisch detailpagina's aanmaken
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allMarkdownRemark {
+        nodes {
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `);
+
+  // Voor elk kunstwerk (markdown bestand) maken we een detailpagina aan
+  result.data.allMarkdownRemark.nodes.forEach(node => {
+    createPage({
+      path: `artwork${node.fields.slug}`, // Bijv. /artwork/kunstwerk1/
+      component: path.resolve("./src/templates/detailpage.js"),
+      context: {
+        slug: node.fields.slug,
+      },
+    });
+  });
+};

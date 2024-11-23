@@ -1,8 +1,7 @@
 ---
-title: "Sterrennacht"
-date: "1889-06-01"
-category: "Schilderij"
-description: "Dit is een beschrijving van het schilderij Sterrennacht door Vincent van Gogh."
+title: "Le Marais"
+date: "1957"
+category: "Schilderijen"
+description: "Dit is een van de mooiste werken van Jean Milo"
+image: "../images/image1.jpg"
 ---
-
-Vincent van Gogh schilderde Sterrennacht in 1889 terwijl hij verbleef in een instelling in Saint-Rémy-de-Provence, Frankrijk. Dit schilderij toont de nachtelijke hemel in een expressieve, emotionele stijl.
