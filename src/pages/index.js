@@ -4,9 +4,9 @@ const IndexPage = () => {
   return (
     <main>
       <title>Jean Milo - Catalogue Raisonné</title>
-      <h1>Jean Milo - Catalogue Raisonné</h1>
+      <h1>Jean Milo - Catalogue Raisonné van de schilderijen</h1>
       <p>
-        Startpagina met zoeken en filteren
+        Welkom
       </p>
     </main>
   )

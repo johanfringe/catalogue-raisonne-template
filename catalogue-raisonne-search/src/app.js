@@ -18,22 +18,15 @@ search.addWidgets([
   instantsearch.widgets.hits({
     container: '#hits',
     templates: {
-      item: (hit, { html, components }) => html`
-        <article>
-          <div>
-            <h1>${components.Highlight({ hit, attribute: 'title' })}</h1>
-            <p>${components.Highlight({ hit, attribute: 'categorie' })}</p>
-            <p>${components.Highlight({ hit, attribute: 'techniek' })}</p>
-          </div>
-        </article>
+      item: (hit) => `
+        <div>
+          <h2><em>Title: ${hit.title}</em></h2>
+          <p><em>Category: ${hit.category}</em></p>
+          <p><em>Description: ${hit.description}</em></p>
+          <p><em>Datum: ${hit.date}</em></p>
+        </div>
       `,
     },
-  }),
-  instantsearch.widgets.configure({
-    hitsPerPage: 8,
-  }),
-  instantsearch.widgets.pagination({
-    container: '#pagination',
   }),
 ]);
 
