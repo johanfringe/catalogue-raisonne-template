@@ -93,4 +93,4 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-.parcel-cache/
+.parcel-cache
