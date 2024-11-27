@@ -1,10 +1,15 @@
 import * as React from "react";
+import { Link } from "gatsby"; // Import Gatsby's Link component
 
 const IndexPage = () => {
   return (
     <main>
-      <h1>Welkom bij het Catalogue Raisonné</h1>
-      <p>Deze site documenteert het werk van verschillende kunstenaars.</p>
+      <h1>Jean Milo</h1>
+      <p>.</p>
+      {/* Link naar de gallerypagina */}
+      <Link to="/gallerypage">
+        Catalogue Raisonné van de Schilderijen
+      </Link>
     </main>
   );
 };

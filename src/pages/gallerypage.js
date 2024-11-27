@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
-import algoliasearch from 'algoliasearch/lite'; // Gebruik de lite-versie voor een lichter gewicht
+import algoliasearch from 'algoliasearch/lite';
+// import { algoliasearch } from 'algoliasearch/lite';
+//import { default as algoliasearch } from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
 import { searchBox, hits } from 'instantsearch.js/es/widgets';
 import { graphql, Link } from "gatsby";
@@ -7,8 +9,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 // Hier is je Algolia zoekclient
 const searchClient = algoliasearch(
-  '39JPZSUI05',  // Vul hier je eigen App ID in
-  '071b803f152e93845e56fdfd29401ad8' // Vul hier je eigen Search Key in
+  process.env.GATSBY_ALGOLIA_APP_ID,
+  process.env.GATSBY_ALGOLIA_SEARCH_KEY
 );
 
 const GalleryPage = ({ data }) => {

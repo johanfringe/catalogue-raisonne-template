@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+const algoliaQueries = require("./src/utils/algolia-queries");
+
 module.exports = {
   siteMetadata: {
     title: `Catalogue Raisonné`,
@@ -30,7 +32,7 @@ module.exports = {
         appId: process.env.ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         indexName: `artworks`,
-        queries: require("./src/utils/algolia-queries"), // Zorg dat het pad correct is
+        queries: algoliaQueries,
         chunkSize: 10000,
       },
     },
