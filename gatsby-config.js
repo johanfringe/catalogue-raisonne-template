@@ -10,6 +10,7 @@ module.exports = {
     siteUrl: `https://catalogue-raisonne-template.netlify.app`,
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
